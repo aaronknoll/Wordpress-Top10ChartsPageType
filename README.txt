@@ -1,0 +1,1 @@
+Adds a page type where a user can make a top 10 chart on their page. 
