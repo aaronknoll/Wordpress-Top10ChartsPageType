@@ -1,0 +1,9 @@
+legend {font-size: 18px; width: 100%;
+font-weight:bold; text-align: center;}
+.countdowner {border: 1px dotted #DDD; margin-bottom:2em; padding: 6px;}
+.itembox {padding: 1px; }
+.itembox label {font-weight: bold;}
+.itembox input.big {width: 70%;}
+input.small {width: 15%;}
+.itembox .bigtext {height: 100px; width: 90%;}
+
