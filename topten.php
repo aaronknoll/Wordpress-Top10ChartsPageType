@@ -9,17 +9,14 @@ Author URI: http://aaronknoll.com
 License: GPL
 */
 
+wp_enqueue_style( 'top10-styles', plugin_dir_url( __FILE__ ) . '/css/top10.css', array(), '0.1', 'screen' );
+add_filter( 'the_content', 'top10_content_filter', 5 );
 add_action( 'init', 'top10_create_post_type' );
-wp_enqueue_style( 'top10-styles', plugin_dir_url( __FILE__ ) . 'css/top10.css', array(), '0.1', 'screen' );
-
 //add_action('add_meta_boxes', 'top10_add_meta_boxes');
 /* Define the custom box */
 add_action( 'add_meta_boxes', 'top10_how_big_of_a_countdown' );
 add_action( 'add_meta_boxes', 'top10_add_custom_box' );
-
-// backwards compatible (before WP 3.0)
-// add_action( 'admin_init', 'top10_add_custom_box', 1 );
-
+add_action("admin_head","top10_wp_tiny_mce");
 /* Do something with the data entered */
 add_action( 'save_post', 'top10_save_postdata' );
 
@@ -30,6 +27,37 @@ register_activation_hook(__FILE__,'top10_install');
 /* Runs on plugin deactivation*/
 register_deactivation_hook( __FILE__, 'top10_remove' );
 
+function top10_wp_tiny_mce() {
+	if (function_exists('wp_tiny_mce')) {
+	
+	  add_filter('teeny_mce_before_init', create_function('$a', '
+	    $a["theme"] = "advanced";
+	    $a["skin"] = "wp_theme";
+	    $a["height"] = "200";
+	    $a["width"] = "600";
+	    $a["onpageload"] = "";
+	    $a["mode"] = "exact";
+	    $a["elements"] = "top10_description1,top10_description2,top10_description3,top10_description4,top10_description5,top10_description6,top10_description7,top10_description8,top10_description9,top10_description10,top10_description11,top10_description12,top10_description13,top10_description14,top10_description15,top10_description16,top10_description17,top10_description18,top10_description19,top10_description20";
+	    $a["editor_selector"] = "mceEditor";
+	    $a["plugins"] = "safari,inlinepopups,spellchecker";
+	    $a["forced_root_block"] = false;
+	    $a["force_br_newlines"] = true;
+	    $a["force_p_newlines"] = false;
+	    $a["convert_newlines_to_brs"] = true;
+	    return $a;'));
+	 wp_tiny_mce(true);
+	}
+}
+
+
+function top10_content_filter($content){
+	if(is_singular('charts'))
+	{
+	echo "you are here.";
+	echo "fdjhgfdk";
+	}
+	return $content;
+}
 
 //FUNCTIONS, OBJECTS AND OTHER EPHEMERA
 function top10_install() {
@@ -61,9 +89,10 @@ function top10_create_post_type() {
 function top10_how_big_of_a_countdown() {
     add_meta_box( 
         'top10_howbigid',
-        __( 'How many entries in your countdown>', 'top10_textdomain' ),
+        __( 'How many entries in your countdown?', 'top10_textdomain' ),
         'top10_howmany_custombox',
-        'charts' 
+        'charts',
+        'side' 
     );
 }
 

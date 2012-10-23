@@ -6,8 +6,7 @@
 					value="<?php 
 					$variablename	=	"top10_title". $x;	
 					echo ${$variablename}; 
-					?> 
-					"/>
+					?>"/>
 					</div>
 				 	<div class="itembox">
 				 	<label for="top10_link<?php echo $x; ?>">Link to Entry</label>
@@ -15,8 +14,7 @@
 					value="<?php 
 					$variablename	=	"top10_link". $x;	
 					echo ${$variablename}; 
-					?> 
-					"/>
+					?>"/>
 					</div>
 				 	<div class="itembox">
 				 	<label for="top10_subtitle<?php echo $x; ?>">Subtitle</label>
@@ -24,15 +22,14 @@
 					value="<?php 
 					$variablename	=	"top10_subtitle". $x;	
 					echo ${$variablename}; 
-					?> 
-					"/>
+					?>"/>
 					</div>
 					<div class="itembox">
 					<label for="top10_description<?php echo $x; ?>">Description</label>
 					<textarea class="bigtext" id="top10_description<?php echo $x; ?>" name="top10_description<?php echo $x; ?>"><?php 
 					$variablename	=	"top10_description". $x;	
 					echo ${$variablename}; 
-					?> </textarea>
+					?></textarea>
 					</div>
 					<table>
 						<tr>
@@ -41,18 +38,14 @@
 								<input class="small"  type="text" id="top10_lastweek<?php echo $x; ?>" name="top10_lastweek<?php echo $x; ?>" 
 								value="<?php 
 								$variablename	=	"top10_lastweek". $x;	
-								echo ${$variablename}; 
-								?> 
-								"/>	
+								echo ${$variablename}; ?>"/>	
 							</td>
 							<td>
 								<label for="top10_2week<?php echo $x; ?>">2 wks</label>
 								<input class="small"  type="text" id="top10_2week<?php echo $x; ?>" name="top10_2week<?php echo $x; ?>" 
 								value="<?php 
 								$variablename	=	"top10_2week". $x;	
-								echo ${$variablename}; 
-								?> 
-								"/>	
+								echo ${$variablename}; ?>"/>	
 							</td>
 						</tr>
 						<tr>
@@ -61,18 +54,14 @@
 								<input class="small"  type="text" id="top10_mover<?php echo $x; ?>" name="top10_mover<?php echo $x; ?>" 
 								value="<?php 
 								$variablename	=	"top10_mover". $x;	
-								echo ${$variablename}; 
-								?> 
-								"/>	
+								echo ${$variablename}; ?>"/>	
 							</td>
 							<td>
 								<label for="top10_debut<?php echo $x; ?>">Big Debut</label>
 								<input class="small"  type="text" id="top10_debut<?php echo $x; ?>" name="top10_debut<?php echo $x; ?>" 
 								value="<?php 
 								$variablename	=	"top10_debut". $x;	
-								echo ${$variablename}; 
-								?> 
-								"/>	
+								echo ${$variablename}; ?>"/>	
 							</td>
 						</tr>
 					</table>			
